@@ -73,7 +73,7 @@ public class DString implements DynamicString { // implementera metoderna i Dyna
 		System.arraycopy(text, end, newArr, start, this.length-end);
 		this.length -= diff;
 		text = newArr;
-return this;
+		return this;
 	}
 
 	@Override
@@ -84,15 +84,12 @@ return this;
 
 	@Override
 	public String substring(int start, int end) {
-		int diff = end - start;
-		char[] newArr = new char[diff];
-		System.arraycopy(text, start, newArr , 0, diff);
-		return new String(newArr);
+		return new String(text,start,end-start);
 	}
 
 	@Override
 	public String substring(int start) {
-		
+
 		return substring(start,this.text.length);
 	}
 
