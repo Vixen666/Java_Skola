@@ -45,6 +45,20 @@ public class Exercise6 {
     }
     
     public void translate() {
+    	String text = JOptionPane.showInputDialog("ööh, mata in ett ord");
+    	String outPut = "Nope, suxxor";
+    	if(dictonary.containsKey(text)){
+    		outPut = text +" betyder "+ dictonary.get(text);
+    	}
+    	JOptionPane.showMessageDialog(null, outPut);
+    }
+    
+    public String translate(String text) {
+    	String outPut = null;
+    	if(dictonary.containsKey(text)){
+    		outPut = dictonary.get(text);
+    	}
+    	return outPut;
     }
 
     public static int menu(String[] options) {
@@ -76,7 +90,8 @@ public class Exercise6 {
         while (choice != 0) {
             switch (choice) {
                 case 1:
-                    ex6. ();
+                	System.out.println( ex6.translate( "asdfa" ) );
+                    ex6.translate();
                     break;
                 case 2:
                     ex6.list();

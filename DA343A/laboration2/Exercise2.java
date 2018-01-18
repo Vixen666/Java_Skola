@@ -53,22 +53,7 @@ public class Exercise2 {
     	}
         return false; // Ta bort och skriv kod
     }
-    
-    @Override
-    public boolean equals(Object obj) {
-    	System.out.println("1");
-    	if(obj instanceof Person) {
-    		System.out.println("1");
-    		for(Person p : list) {
-    			if(p.getId().equals(((Person) obj).getId())) {
-    				return true;
-    			}
-    		}
-    		return false;
-    	}
-    	return false;
-    }
-    
+  
     // Uppgift 3
     public int position2(String id) {
     	Person p = new Person(id,"","");
@@ -79,14 +64,14 @@ public class Exercise2 {
     
     
     // Uppgift 4
-//    public void sort() {
-//    	Collections.sort(list);
-//    }
-    // Uppgift 4    
-//    public int position3(String id) {
-//    	Person p = new Person(id,"","");
-//    	return Collections.binarySearch(list, p);
-//    }
+    public void sort() {
+    	Collections.sort(list);
+    }
+   //  Uppgift 4    
+    public int position3(String id) {
+    	Person p = new Person(id,"","");
+    	return Collections.binarySearch(list, p);
+    }
     
     public static void main( String[] args ) {
         Exercise2 ex2 = new Exercise2( "files/personer.txt" );
@@ -102,8 +87,9 @@ public class Exercise2 {
         System.out.println( ex2.toString() );
         System.out.println( ex2.position2("840102-4567") ); // Uppgift 3
         
-//        ex2.sort(); // Uppgift 4
-//        System.out.println( ex2.toString() );
-//        System.out.println( ex2.position3("840102-4567") ); // Uppgift 4
+        ex2.sort(); // Uppgift 4
+
+       System.out.println( ex2.toString() );
+        System.out.println( ex2.position3("840102-4567") ); // Uppgift 4
     }
 }

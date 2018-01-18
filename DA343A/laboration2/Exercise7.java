@@ -1,14 +1,14 @@
 package laboration2;
 
 import java.io.*;
-import java.util.HashMap;
+import java.util.TreeMap;
 import java.util.Map;
 
 import javax.swing.JOptionPane;
 
 public class Exercise7 {
 
-    private HashMap<String, String> dictonary = new HashMap<String, String>();
+    private TreeMap<String, String> dictonary = new TreeMap<String, String>();
     
     public Exercise7(String filename) {
         readDictionary(filename,dictonary);
@@ -18,13 +18,14 @@ public class Exercise7 {
         try {
             BufferedReader br = new BufferedReader(new InputStreamReader(new FileInputStream(filename),"ISO-8859-1"));
             String[] parts;
-            String english, swedish;
+            String english, swedish, skane;
             String str = br.readLine();
             while (str != null) {
                 parts = str.split(",");
                 english = parts[2];
                 swedish = parts[1];
-                map.put(english, swedish);
+                skane = parts[0];
+                map.put(swedish, skane);
                 str = br.readLine();
             }
             br.close();
@@ -46,8 +47,22 @@ public class Exercise7 {
     }
     
     public void translate() {
+    	String text = JOptionPane.showInputDialog("ööh, mata in ett ord");
+    	String outPut = "Nope, suxxor";
+    	if(dictonary.containsKey(text)){
+    		outPut = text +" heter "+ dictonary.get(text);
+    	}
+    	JOptionPane.showMessageDialog(null, outPut);
     }
 
+    public String translate(String text) {
+    	String outPut = null;
+    	if(dictonary.containsKey(text)){
+    		outPut = dictonary.get(text);
+    	}
+    	return outPut;
+    }
+    
     public static int menu(String[] options) {
         int res = 0;
         String input;
